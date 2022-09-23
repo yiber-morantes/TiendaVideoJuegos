@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Tiende_De_Video_Juegos.Models.videoJuego>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listar videojuegos</h2>
+
+<p>
+    @Html.ActionLink("Crea Video Juegos", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoJuegoNombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoJuegoNombre)
+        </td>
+        <td>
+            <button class="btn btn-warning">
+            @Html.ActionLink("Editar Video Juegos", "Edit", new { item.VideoJuegoCodigo,item.VideoJuegoCodigoEjemplar}) 
+            </button>
+            <button class="btn btn-success">
+            @Html.ActionLink("Ver viedo Juegos", "Details", new { item.VideoJuegoCodigo, item.VideoJuegoCodigoEjemplar }) 
+            </button>
+             <button class="btn btn-danger">
+            @Html.ActionLink("Eliminar Video Juegos", "Delete", new { item.VideoJuegoCodigo, item.VideoJuegoCodigoEjemplar })
+             </button>
+        </td>
+    </tr>
+}
+
+</table>

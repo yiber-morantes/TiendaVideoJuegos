@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Tiende_De_Video_Juegos.Models.usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Crear Usuarios", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioNombre) 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioCorreo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioCorreo)
+        </td>
+        <td>
+            <button class="btn btn-warning">
+            @Html.ActionLink("Editar Usuario", "Edit", new { id=item.UsuarioCedula }) 
+            </button>
+            <br />
+              <button class="btn btn-success">
+            @Html.ActionLink("Ver Usuario", "Details", new { id=item.UsuarioCedula }) 
+                      </button>
+            <br />
+            <button class="btn btn-danger">
+            @Html.ActionLink("Eliminar Usuario", "Delete", new { id=item.UsuarioCedula })
+                    </button>
+        </td>
+    </tr>
+}
+
+</table>
